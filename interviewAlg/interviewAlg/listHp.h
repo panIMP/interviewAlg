@@ -14,4 +14,10 @@ creatList(int memberNum);
 int
 getListLen(pListNode list);
 
+void 
+RemoveNode(pListNode* pHead, int value);
+
+pListNode
+findKth2Tail(pListNode list, int k);
+
 #endif

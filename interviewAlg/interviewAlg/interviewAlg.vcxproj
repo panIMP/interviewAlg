@@ -92,7 +92,7 @@
   <ItemGroup>
     <ClCompile Include="fibonacci.cpp" />
     <ClCompile Include="findInPartiallySortedMatrix.cpp" />
-    <ClCompile Include="findKth2Tail.cpp" />
+    <ClCompile Include="listHp.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mergeSortedArray.cpp" />
     <ClCompile Include="replaceBlank.cpp" />
@@ -111,7 +111,6 @@
     <ClInclude Include="replaceBlank.h" />
     <ClInclude Include="singleton.h" />
     <ClInclude Include="str2Num.h" />
-    <ClInclude Include="findKth2Tail.h" />
     <ClInclude Include="userTypes.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

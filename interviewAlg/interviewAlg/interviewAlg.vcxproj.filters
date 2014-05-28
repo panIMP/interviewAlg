@@ -18,9 +18,6 @@
     <ClCompile Include="str2Num.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="findKth2Tail.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="fibonacci.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -42,12 +39,12 @@
     <ClCompile Include="mergeSortedArray.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="listHp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="str2Num.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="findKth2Tail.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="listHp.h">

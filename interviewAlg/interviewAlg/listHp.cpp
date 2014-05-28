@@ -1,9 +1,10 @@
 #include <cstdio>
 #include <cstdlib>
-#include "findKth2Tail.h"
+#include "listHp.h"
 
 
-pListNode 
+
+pListNode
 creatList(int memberNum)
 {
 	static pListNode list = nullptr;
@@ -15,7 +16,7 @@ creatList(int memberNum)
 		return list;
 	}
 
-	list = (pListNode)malloc(sizeof(listNode));
+	list = new listNode;
 	list->next = nullptr;
 	list->value = 0;
 
@@ -23,7 +24,7 @@ creatList(int memberNum)
 
 	for (int i = 1; i < memberNum; ++i)
 	{
-		listNode1 = (pListNode)malloc(sizeof(listNode));
+		listNode1 = new listNode;
 		listNode1->value = i;
 		listNode1->next = nullptr;
 
@@ -46,6 +47,39 @@ getListLen(pListNode list)
 	}
 
 	return len;
+}
+
+
+void
+RemoveNode(pListNode* pHead, int value)
+{
+	if (*pHead == nullptr || pHead == nullptr)
+		return;
+
+	pListNode pToBeDeleted = nullptr;
+
+	if ((*pHead)->value == value)
+	{
+		pToBeDeleted = *pHead;
+		*pHead = pToBeDeleted->next;
+	}
+	else
+	{
+		pListNode pCurNode = *pHead;
+		
+		while (pCurNode->next != nullptr && pCurNode->next->value != value)
+			pCurNode = pCurNode->next;
+
+		if (pCurNode->next != nullptr && pCurNode->next->value == value)
+		{
+			pToBeDeleted = pCurNode->next;
+			pCurNode->next = pToBeDeleted->next;
+			pToBeDeleted->next = nullptr;
+		}
+	}
+
+	delete(pToBeDeleted);
+	pToBeDeleted = nullptr;
 }
 
 
