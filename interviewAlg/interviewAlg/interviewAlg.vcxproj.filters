@@ -15,8 +15,66 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="str2Num.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="findKth2Tail.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="fibonacci.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="userTypes.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="singleton.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="findInPartiallySortedMatrix.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="replaceBlank.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mergeSortedArray.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="str2Num.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="findKth2Tail.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="listHp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="fibonacci.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="userTypes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="singleton.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="findInPartiallySortedMatrix.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="replaceBlank.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mergeSortedArray.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.txt">
+      <Filter>资源文件</Filter>
+    </Text>
   </ItemGroup>
 </Project>
