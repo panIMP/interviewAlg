@@ -2,8 +2,8 @@
 #include <iostream>
 
 
-Singleton* Singleton::instance = nullptr;
-std::mutex Singleton::lockGetInstance;
+Singleton* Singleton::m_pInstance = nullptr;
+std::mutex Singleton::m_nLockGetInstance;
 
 Singleton::Singleton()
 {
@@ -12,16 +12,16 @@ Singleton::Singleton()
 
 Singleton* Singleton::getInstance()
 {
-	if (instance == nullptr)
+	if (m_pInstance == nullptr)
 	{
-		lockGetInstance.lock();
+		m_nLockGetInstance.lock();
 		
-		if (instance == nullptr)
-			instance = new Singleton();
+		if (m_pInstance == nullptr)
+			m_pInstance = new Singleton();
 
-		lockGetInstance.unlock();
+		m_nLockGetInstance.unlock();
 	}
 
-	return instance;
+	return m_pInstance;
 }
 

@@ -8,8 +8,8 @@ public:
 	static Singleton* getInstance();
 
 private:
-	static Singleton* instance;
-	static std::mutex lockGetInstance;
+	static Singleton* m_pInstance;
+	static std::mutex m_nLockGetInstance;
 
 protected:
 	Singleton();

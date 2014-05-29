@@ -98,6 +98,7 @@
     <ClCompile Include="replaceBlank.cpp" />
     <ClCompile Include="singleton.cpp" />
     <ClCompile Include="str2Num.cpp" />
+    <ClCompile Include="treeHp.cpp" />
     <ClCompile Include="userTypes.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +112,7 @@
     <ClInclude Include="replaceBlank.h" />
     <ClInclude Include="singleton.h" />
     <ClInclude Include="str2Num.h" />
+    <ClInclude Include="treeHp.h" />
     <ClInclude Include="userTypes.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
