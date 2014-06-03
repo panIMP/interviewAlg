@@ -193,21 +193,31 @@ printBinaryTreePostorderStack(pBinaryTreeNode root)
 		if (pNode != nullptr)
 		{
 			treeStack.push(pNode);
+			treeStack.push(pNode->m_pRight);
 
 			pNode = pNode->m_pLeft;
 		}
 		else
 		{
 			pNode = treeStack.top();
+			treeStack.pop();
 
-			if (pNode->m_pRight == nullptr)
+			if (pNode == nullptr)
 			{
-				std::cout << pNode->m_nValue << " ";
+				pNode = treeStack.top();
+				treeStack.pop();
 
+ 				if (pNode != nullptr)
+ 					std::cout << pNode->m_nValue << " ";
+
+				if (treeStack.empty())
+					return;
+				
+				pNode = treeStack.top();
 				treeStack.pop();
 			}
 
-			pNode = pNode->m_pRight;
+			treeStack.push(nullptr);
 		}
 	}
 }
@@ -215,10 +225,25 @@ printBinaryTreePostorderStack(pBinaryTreeNode root)
 
 // Print in breadth-first order
 void
-printBinaryTreeBreadthFirstOrder(pBinaryTreeNode pNode)
+printBinaryTreeBreadthFirstOrder(pBinaryTreeNode root)
 {
+	std::queue<pBinaryTreeNode> treeQueue;
+	treeQueue.push(root);
+	pBinaryTreeNode pNode;
 
+	while (!treeQueue.empty())
+	{
+		pNode = treeQueue.front();
+		treeQueue.pop();
 
+		std::cout << pNode->m_nValue << " ";
+
+		if (pNode->m_pLeft != nullptr)
+			treeQueue.push(pNode->m_pLeft);
+
+		if (pNode->m_pRight != nullptr)
+			treeQueue.push(pNode->m_pRight);
+	}
 }
 
 

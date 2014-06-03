@@ -52,7 +52,7 @@ printBinaryTreePostorderStack(pBinaryTreeNode root);
 
 // Print in breadth-first order
 void
-printBinaryTreeBreadthFirstOrder(pBinaryTreeNode pNode);
+printBinaryTreeBreadthFirstOrder(pBinaryTreeNode root);
 
 
 

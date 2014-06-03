@@ -15,11 +15,11 @@ main()
 
 	pBinaryTreeNode root = createBinarySearchTree(a, 12);
 
-	printBinaryTreePostorderRecursive(root);
+	printBinaryTreeInorderStack(root);
 
 	std::cout << "\n";
 
-	printBinaryTreePostorderStack(root);
+	printBinaryTreeBreadthFirstOrder(root);
 
 	std::cout << "\n";
 
