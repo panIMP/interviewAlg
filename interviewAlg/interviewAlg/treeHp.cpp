@@ -1,5 +1,9 @@
 #include "treeHp.h"
 #include <iostream>
+#include <stack>
+#include <queue>
+
+
 
 
 // Create a binary search tree
@@ -19,7 +23,7 @@ createBinarySearchTree(valueType array[], int nodeNum)
 
 // Insert a node into binary search tree
 pBinaryTreeNode
-insertIntoBinarySearchTree(valueType value, pBinaryTreeNode pNode)
+insertIntoBinarySearchTree(valueType value, pBinaryTreeNode& pNode)
 {
 	if (pNode == nullptr)
 	{
@@ -34,10 +38,10 @@ insertIntoBinarySearchTree(valueType value, pBinaryTreeNode pNode)
 	
 	else
 	{	
-		if (pNode->m_nValue > value)
+		if (pNode->m_nValue < value)
 			insertIntoBinarySearchTree(value, pNode->m_pRight);
 
-		else if (pNode->m_nValue < value)
+		else if (pNode->m_nValue > value)
 			insertIntoBinarySearchTree(value, pNode->m_pLeft);
 	}
 
@@ -45,82 +49,167 @@ insertIntoBinarySearchTree(valueType value, pBinaryTreeNode pNode)
 }
 
 
-// Print all the tree node in certain traveral order
+// Print in preorder
 void
-printBinaryTree(pBinaryTreeNode pNode, traverSalOrder order)
+printBinaryTreePreorderRecursive(pBinaryTreeNode pNode)
 {
 	if (pNode == nullptr)
 		return;
 
-	switch (order)
+	else
 	{
-	case PRE_ORDER:
-		printBinaryTreePreorder(pNode);
-		break;
-	case IN_ORDER:
-		printBinaryTreeInorder(pNode);
-		break;
-	case POST_ORDER:
-		printBinaryTreePostorder(pNode);
-		break;
-	case BREADTH_FIRST_ORDER:
-		printBinaryTreeBreadthFirstOrder(pNode);
-		break;
-	default:
-		std::cout << "Not a valid order type!" << std::endl;
-		break;
+		std::cout << pNode->m_nValue << " ";
+		printBinaryTreePreorderRecursive(pNode->m_pLeft);
+		printBinaryTreePreorderRecursive(pNode->m_pRight);
 	}
 }
 
-
-// Print in preorder
 void
-printBinaryTreePreorder(pBinaryTreeNode pNode)
+printBinaryTreePreorderStack1(pBinaryTreeNode root)
 {
-	if (pNode == nullptr)
+	if (root == nullptr)
 		return;
 
-	std::cout << pNode->m_nValue << " ";
+	std::stack<pBinaryTreeNode> treeStack;
+	pBinaryTreeNode pNode = root;
+	treeStack.push(pNode);
 
-	if (pNode->m_pLeft != nullptr)
-		printBinaryTreePreorder(pNode->m_pLeft);
+	while (!treeStack.empty())
+	{
+		pNode = treeStack.top();
+		treeStack.pop();
 
-	if (pNode->m_pRight != nullptr)
-		printBinaryTreePreorder(pNode->m_pRight);
+		std::cout << pNode->m_nValue << " ";
+
+		if (pNode->m_pRight != nullptr)
+			treeStack.push(pNode->m_pRight);
+
+		if (pNode->m_pLeft != nullptr)
+			treeStack.push(pNode->m_pLeft);
+	}
+}
+
+void
+printBinaryTreePreorderStack2(pBinaryTreeNode root)
+{
+	if (root == nullptr)
+		return;
+
+	std::stack<pBinaryTreeNode> treeStack;
+	pBinaryTreeNode pNode = root;
+
+	while (pNode != nullptr || !treeStack.empty())
+	{
+		if (pNode != nullptr)
+		{
+			std::cout << pNode->m_nValue << " ";
+
+			treeStack.push(pNode);
+
+			pNode = pNode->m_pLeft;
+		}
+		else
+		{
+			pNode = treeStack.top();
+			treeStack.pop();
+
+			pNode = pNode->m_pRight;
+		}
+	}
 }
 
 
 // Print in inorder
 void
-printBinaryTreeInorder(pBinaryTreeNode pNode)
+printBinaryTreeInorderRecursive(pBinaryTreeNode pNode)
 {
 	if (pNode == nullptr)
 		return;
 
-	if (pNode->m_pLeft != nullptr)
-		printBinaryTreeInorder(pNode->m_pLeft);
+	else
+	{
+		printBinaryTreeInorderRecursive(pNode->m_pLeft);
+		std::cout << pNode->m_nValue << " ";
+		printBinaryTreeInorderRecursive(pNode->m_pRight);
+	}
+}
 
-	std::cout << pNode->m_nValue << " ";
+void
+printBinaryTreeInorderStack(pBinaryTreeNode root)
+{
+	if (root == nullptr)
+		return;
 
-	if (pNode->m_pRight != nullptr)
-		printBinaryTreeInorder(pNode->m_pRight);
+	std::stack<pBinaryTreeNode> treeStack;
+	pBinaryTreeNode pNode = root;
+
+	while (pNode != nullptr || !treeStack.empty())
+	{
+		if (pNode != nullptr)
+		{
+			treeStack.push(pNode);
+
+			pNode = pNode->m_pLeft;
+		}
+		else
+		{
+			pNode = treeStack.top();
+			treeStack.pop();
+
+			std::cout << pNode->m_nValue << " ";
+
+			pNode = pNode->m_pRight;
+		}
+	}
 }
 
 
 // Print in postorder
 void
-printBinaryTreePostorder(pBinaryTreeNode pNode)
+printBinaryTreePostorderRecursive(pBinaryTreeNode pNode)                                      
 {
 	if (pNode == nullptr)
 		return;
 
-	if (pNode->m_pLeft != nullptr)
-		printBinaryTreePostorder(pNode->m_pLeft);
-	
-	if (pNode->m_pRight != nullptr)
-		printBinaryTreePostorder(pNode->m_pRight);
-	
-	std::cout << pNode->m_nValue << " ";
+	else
+	{
+		printBinaryTreePostorderRecursive(pNode->m_pLeft);
+		printBinaryTreePostorderRecursive(pNode->m_pRight);
+		std::cout << pNode->m_nValue << " ";
+	}
+}
+
+void
+printBinaryTreePostorderStack(pBinaryTreeNode root)
+{
+	if (root == nullptr)
+		return;
+
+	std::stack<pBinaryTreeNode> treeStack;
+	pBinaryTreeNode pNode = root;
+
+	while (pNode != nullptr || !treeStack.empty())
+	{
+		if (pNode != nullptr)
+		{
+			treeStack.push(pNode);
+
+			pNode = pNode->m_pLeft;
+		}
+		else
+		{
+			pNode = treeStack.top();
+
+			if (pNode->m_pRight == nullptr)
+			{
+				std::cout << pNode->m_nValue << " ";
+
+				treeStack.pop();
+			}
+
+			pNode = pNode->m_pRight;
+		}
+	}
 }
 
 
@@ -128,14 +217,7 @@ printBinaryTreePostorder(pBinaryTreeNode pNode)
 void
 printBinaryTreeBreadthFirstOrder(pBinaryTreeNode pNode)
 {
-	if (pNode == nullptr)
-		return;
 
-	if (pNode->m_pLeft != nullptr)
-		std::cout << pNode->m_pLeft->m_nValue << " ";
-
-	if (pNode->m_pRight != nullptr)
-		std::cout << pNode->m_pRight->m_nValue << " ";
 
 }
 

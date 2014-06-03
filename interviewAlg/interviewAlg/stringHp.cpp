@@ -2,7 +2,8 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cmath>
-#include "str2Num.h"
+#include "stringHp.h"
+
 
 double 
 str2Num(char* str)

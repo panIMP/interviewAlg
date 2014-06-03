@@ -12,14 +12,6 @@ struct binaryTreeNode
 typedef binaryTreeNode* pBinaryTreeNode;
 
 
-enum traverSalOrder
-{
-	PRE_ORDER = 1,
-	IN_ORDER,
-	POST_ORDER,
-	BREADTH_FIRST_ORDER,
-};
-
 
 // Create a binary search tree
 pBinaryTreeNode
@@ -28,32 +20,40 @@ createBinarySearchTree(valueType array[], int nodeNum);
 
 // Insert a node into binary search tree
 pBinaryTreeNode
-insertIntoBinarySearchTree(valueType value, pBinaryTreeNode pNode);
-
-
-// Print all the tree node in certain traveral order
-void
-printBinaryTree(pBinaryTreeNode pNode, traverSalOrder order);
+insertIntoBinarySearchTree(valueType value, pBinaryTreeNode& pNode);
 
 
 // Print in preorder
 void
-printBinaryTreePreorder(pBinaryTreeNode pNode);
+printBinaryTreePreorderRecursive(pBinaryTreeNode pNode);
+
+void
+printBinaryTreePreorderStack1(pBinaryTreeNode root);
+
+void
+printBinaryTreePreorderStack2(pBinaryTreeNode root);
 
 
 // Print in inorder
 void
-printBinaryTreeInorder(pBinaryTreeNode pNode);
+printBinaryTreeInorderRecursive(pBinaryTreeNode pNode);
+
+void
+printBinaryTreeInorderStack(pBinaryTreeNode root);
 
 
 // Print in postorder
 void
-printBinaryTreePostorder(pBinaryTreeNode pNode);
+printBinaryTreePostorderRecursive(pBinaryTreeNode pNode);
+
+void
+printBinaryTreePostorderStack(pBinaryTreeNode root);
 
 
 // Print in breadth-first order
 void
 printBinaryTreeBreadthFirstOrder(pBinaryTreeNode pNode);
+
 
 
 // Find the node through the value(Condition: no duplicate value in the tree)

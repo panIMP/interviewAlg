@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="str2Num.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="fibonacci.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -45,11 +42,11 @@
     <ClCompile Include="treeHp.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="stringHp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="str2Num.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="listHp.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -72,6 +69,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="treeHp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stringHp.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
